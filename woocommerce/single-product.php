@@ -25,11 +25,12 @@ if (isset($_GET['id'])) {
     exit;
 }
 
-// $post = get_the_ID();
-// $product     = wc_get_product($post);
+$post        = get_the_ID();
+$product     = wc_get_product($post);
 // $product_id  = $product->get_id();
 // echo 'product id: ';
 // var_dump($product_id);
+// echo 'QTY single: ' . $product->get_stock_quantity();
 
 get_header('shop');
 

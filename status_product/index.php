@@ -144,13 +144,6 @@ function showStatus($product_id = null, $stock_status = false, $single_product =
     // }
 
     // if ($single) {
-    //     dd($posts);
-    //     $slug = $product->slug;
-    //     // dd($product_obj = get_page_by_path( $slug, 'OBJECT', 'product' ));
-
-    //     dd($product_obj = new WC_Product(get_page_by_path($slug, OBJECT, 'product')->ID));
-
-    //     dd($product);
     // }
 
     $product    = wc_get_product($product_id);
@@ -199,11 +192,11 @@ function showStatus($product_id = null, $stock_status = false, $single_product =
     // }
 
     //! debug start
-    echo 'product_id: ' . $product_id;
-    echo '<br>';
-    echo 'QTY single: ' . $product->get_stock_quantity();
-    echo '<br>';
-    echo 'QTY variable: ' . $stockVariationAllQuantity;
+    // echo 'product_id: ' . $product_id;
+    // echo '<br>';
+    // echo 'QTY single: ' . $product->get_stock_quantity();
+    // echo '<br>';
+    // echo 'QTY variable: ' . $stockVariationAllQuantity;
     //! debug end
 
     // echo $product->get_stock_status();
@@ -274,10 +267,10 @@ function showStatus($product_id = null, $stock_status = false, $single_product =
     if ($single_product) {
         ?>
 
-<!--<div class="woocommerce-variation-availability">
-            <p class="stock in-stock"><?= $status ?>
+<!-- <div class="woocommerce-variation-availability">
+    <p class="stock in-stock"><?= $status ?>
 </p>
-</div>-->
+</div> -->
 <!-- <div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}</div> -->
 <?php
     }
@@ -573,18 +566,18 @@ function get_selected_variation_stock()
                             },
                         });
                     } else {
-                        if (!res.is_in_stock) {
-                            var textStatus =
-                                '<?= __('Waiting 7-21 days', 'woocommerce'); ?>';
+                        // if (!res.is_in_stock) {
+                        //     var textStatus =
+                        //         '<?= __('Waiting 7-21 days', 'woocommerce'); ?>';
 
-                            $('#product_info_show .stock').text(textStatus)
-                                .addClass('out-off-stock');
-                        } else {
-                            var textStatus =
-                                '<?= __('In stock', 'woocommerce'); ?>';
+                        //     $('#product_info_show .stock').text(textStatus)
+                        //         .addClass('out-off-stock');
+                        // } else {
+                        //     var textStatus =
+                        //         '<?= __('In stock', 'woocommerce'); ?>';
 
-                            $('#product_info_show .stock').text(textStatus);
-                        }
+                        //     $('#product_info_show .stock').text(textStatus);
+                        // }
                     }
                 },
             });
