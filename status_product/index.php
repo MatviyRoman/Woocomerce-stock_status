@@ -89,8 +89,8 @@ function woo_add_custom_general_fields()
     $options = [
         ''                           => __('Select a value', 'woocommerce'),
         'instock'                    => __('In stock', 'woocommerce'),
-        'outofstock'                 => __('Waiting 7-21 days', 'woocommerce'),
-        'onbackorder'                => __('Waiting 15-25 days', 'woocommerce'),
+        'outofstock'                 => __('Delivery in 7-21 days', 'woocommerce'),
+        'onbackorder'                => __('Delivery in 15-25 days', 'woocommerce'),
     ];
 
     woocommerce_wp_select([
@@ -228,15 +228,15 @@ function showStatus($product_id = null, $stock_status = false, $single_product =
         case 'outofstock':
         case 'ожидание 7-21 дней':
         case 'ooteaeg 7-21 päeva':
-        case 'waiting 7-21 days':
-            $status = __('Waiting 7-21 days', 'woocommerce');
+        case 'delivery in 7-21 days':
+            $status = __('Delivery in 7-21 days', 'woocommerce');
             break;
 
         case 'onbackorder':
         case 'ожидание 15-25 дней':
         case 'ooteaeg 15-25 päeva':
-        case 'waiting 15-25 days':
-            $status = __('Waiting 15-25 days', 'woocommerce');
+        case 'delivery in 15-25 days':
+            $status = __('Delivery in 15-25 days', 'woocommerce');
             break;
 
         default:
@@ -313,8 +313,8 @@ function woocommerce_add_custom_stock_status()
     woocommerce_wp_select(['id' => '_stock_status', 'wrapper_class' => 'custom-stock-status', 'label' => __('Stock status', 'woocommerce'), 'options' => [
         ''                           => __('Select a value', 'woocommerce'),
         'instock'                    => __('In stock', 'woocommerce'),
-        'outofstock'                 => __('Waiting 7-21 days', 'woocommerce'),
-        'onbackorder'                => __('Waiting 15-25 days', 'woocommerce'),
+        'outofstock'                 => __('Delivery in 7-21 days', 'woocommerce'),
+        'onbackorder'                => __('Delivery in 15-25 days', 'woocommerce'),
     ], 'desc_tip' => true, 'description' => __('Controls whether or not the product is listed as "in stock" or "out of stock" on the frontend.', 'woocommerce')]);
 
     //     woocommerce_wp_select(
@@ -347,12 +347,12 @@ function get_custom_stock_status($data, $product)
             $data = ['availability' => __('In stock', 'woocommerce'), 'class' => 'in-stock'];
         break;
         case 'outofstock':
-        case 'waiting 7-21 days':
-            $data = ['availability' => __('Waiting 7-21 days', 'woocommerce'), 'class' => 'out-of-stock'];
+        case 'delivery in 7-21 days':
+            $data = ['availability' => __('Delivery in 7-21 days', 'woocommerce'), 'class' => 'out-of-stock'];
         break;
         case 'onbackorder':
-        case 'waiting 15-25 days':
-            $data = ['availability' => __('Waiting 15-25 days', 'woocommerce'), 'class' => 'on-backorder'];
+        case 'delivery in 15-25 days':
+            $data = ['availability' => __('Delivery in 15-25 days', 'woocommerce'), 'class' => 'on-backorder'];
         break;
     }
     return $data;
@@ -486,12 +486,12 @@ function get_selected_variation_stock()
                     '<?= __('In stock', 'woocommerce'); ?>';
             } else {
                 stock_status =
-                    '<?= __('Waiting 7-21 days', 'woocommerce'); ?>';
+                    '<?= __('Delivery in 7-21 days', 'woocommerce'); ?>';
             }
 
             if (getAllVariationsQty == 0) {
                 stock_status =
-                    '<?= __('Waiting 7-21 days', 'woocommerce'); ?>';
+                    '<?= __('Delivery in 7-21 days', 'woocommerce'); ?>';
             }
 
             setTimeout(() => {
@@ -568,7 +568,7 @@ function get_selected_variation_stock()
                     } else {
                         // if (!res.is_in_stock) {
                         //     var textStatus =
-                        //         '<?= __('Waiting 7-21 days', 'woocommerce'); ?>';
+                        //         '<?= __('Delivery in 7-21 days', 'woocommerce'); ?>';
 
                         //     $('#product_info_show .stock').text(textStatus)
                         //         .addClass('out-off-stock');

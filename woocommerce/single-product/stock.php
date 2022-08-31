@@ -24,12 +24,15 @@ $post        = get_the_ID();
 $product     = wc_get_product($post);
 $product_id  = $product->get_id();
 
-$sql           = "SELECT meta_key,meta_value FROM {$wpdb->prefix}postmeta as p WHERE post_id = {$product_id} AND meta_key = '_stock_status'";
-// echo $sql;
-$stock_status = $wpdb->get_var($sql);
+if ($product->is_type('simple')) {
+    $sql           = "SELECT meta_key,meta_value FROM {$wpdb->prefix}postmeta as p WHERE post_id = {$product_id} AND meta_key = '_stock_status'";
+    // echo $sql;
+    $stock_status = $wpdb->get_var($sql);
 
-echo showStatus($product_id, $stock_status, true);
-?>
-<!-- orig code -->
-<!-- <p class="stock <?php echo esc_attr($class); ?>"><?php echo wp_kses_post($availability); ?>
+    echo showStatus($product_id, $stock_status, true); ?>
+
+<!-- <p style="display: none"
+   class="stock <?php //echo esc_attr($class);?>"><?php echo wp_kses_post($availability); ?>
 </p> -->
+<?php
+}
